@@ -20,7 +20,6 @@ export default function Home() {
          const response = await axios.get(`https://api.github.com/users/${user}`);
          const newUserGitHub = response.data;
          setUserGitHub(newUserGitHub);
-         console.log(typeof userGitHub?.followers);
       } catch (error) {
          console.error("Erro ao buscar os repositórios " + error);
       }

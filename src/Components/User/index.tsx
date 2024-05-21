@@ -15,7 +15,7 @@ interface Props {
    location: string
 }
 
-export default function User({avatar_url, login, name, bio, followers, following, location}: Props) {
+export default function User({ avatar_url, login, name, bio, followers, following, location }: Props) {
    return (
       <Stack display={'flex'} margin={'0 auto'} spacing={2} alignItems='center'>
          <Avatar
@@ -26,16 +26,30 @@ export default function User({avatar_url, login, name, bio, followers, following
          <Button variant="outlined" size="small" color="primary" href={`https://github.com/${login}`} target="_blank"> Perfil </Button> {/* login */}
          <Typography variant="h1" fontSize={35} fontWeight={'bold'}>{name}</Typography> {/* name */}
          <Typography variant="h2" fontSize={25}>{login}</Typography> {/* login */}
-         <Typography variant="h3" fontSize={20}>{bio}</Typography> {/* bio SE HOUVER*/}
+         {
+            bio !== null ? <Typography variant="h3" fontSize={20} textAlign={'center'}>{bio}</Typography> : null 
+         } {/* bio SE HOUVER*/}
          <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
             <PeopleAltOutlinedIcon fontSize="small" />
             <Typography marginLeft={1}>
-               <strong>{followers} </strong> followers {/* followers */}· <strong>{following}</strong> following {/* following */}
+               <strong>{followers}</strong>{" "}
+               <a href={`https://github.com/${login}?tab=followers`} target="_blank" style={{ textDecoration: 'none', color: '#f2f2f2' }}>
+                  followers
+               </a>{" "}
+               ·{" "}
+               <strong>{following}</strong>{" "}
+               <a href={`https://github.com/${login}?tab=following`} target="_blank" style={{ textDecoration: 'none', color: '#f2f2f2' }}>
+                  following
+               </a>
             </Typography>
          </Box>
-         <Box display={'flex'} flexDirection={'row'} alignItems={'center'}> {/* SE HOUVER */}
-            <LocationOnOutlinedIcon fontSize="small" /> <Typography fontSize={15}> {location} </Typography>  {/* location */}
-         </Box >
+         {
+            location !== null ?
+               <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
+                  <LocationOnOutlinedIcon fontSize="small" /> <Typography fontSize={15}> {location} </Typography>  {/* location */}
+               </Box >
+               : null
+         }  {/* location SE HOUVER */}
          <Link to='/repositories'>
             <Button variant="contained" size="small" color="success"> Repositórios </Button>
          </Link>
