@@ -1,9 +1,13 @@
+//import material ui
 import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
 
-// material icons
+// import material icons
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+
+//import react
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface Props {
    avatar_url: string,
@@ -14,6 +18,8 @@ interface Props {
    following: number,
    location: string
 }
+
+
 
 export default function User({ avatar_url, login, name, bio, followers, following, location }: Props) {
    return (
@@ -27,7 +33,7 @@ export default function User({ avatar_url, login, name, bio, followers, followin
          <Typography variant="h1" fontSize={35} fontWeight={'bold'}>{name}</Typography> {/* name */}
          <Typography variant="h2" fontSize={25}>{login}</Typography> {/* login */}
          {
-            bio !== null ? <Typography variant="h3" fontSize={20} textAlign={'center'}>{bio}</Typography> : null 
+            bio !== null ? <Typography variant="h3" fontSize={20} textAlign={'center'}>{bio}</Typography> : null
          } {/* bio SE HOUVER*/}
          <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
             <PeopleAltOutlinedIcon fontSize="small" />
