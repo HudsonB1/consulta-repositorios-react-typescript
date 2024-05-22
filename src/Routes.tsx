@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes as Switch } from 'react-router-dom';
 
-//pages
 import Home from '@/Pages/Home';
 import Repositories from '@/Pages/Repositories';
 
