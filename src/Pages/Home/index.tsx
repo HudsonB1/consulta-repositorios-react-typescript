@@ -1,23 +1,18 @@
 import axios from 'axios';
 import { ChangeEvent, useState } from 'react';
 
-//material ui
 import { Button, Stack, TextField, Box, Modal, Typography, IconButton } from '@mui/material';
 
-//material icons
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-//interfaces
 import IUser from '@/interface/User';
 
-//components
 import User from '@/Components/User';
 
 export default function Home() {
    const [user, setUser] = useState<String>();
    const [userGitHub, setUserGitHub] = useState<IUser>();
 
-   //useState Modal
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -37,9 +32,7 @@ export default function Home() {
       setUser(event.target.value)
    }
 
-   // https://api.github.com/users/matheussss1
 
-   //Modal
    function BasicModal() {
 
       return (
@@ -68,7 +61,7 @@ export default function Home() {
                      <IconButton aria-label="delete" size="small" sx={{
                         color: 'white',
                         '&:hover': {
-                           backgroundColor: '#212121', // Substitua 'red' pela cor que você deseja
+                           backgroundColor: '#212121',
                         },
                      }} onClick={handleClose}>
                         <CloseOutlinedIcon />
