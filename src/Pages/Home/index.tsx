@@ -24,7 +24,7 @@ export default function Home() {
          setUserGitHub(newUserGitHub);
       } catch (error) {
          handleOpen();
-         console.error("Erro ao buscar os repositórios " + error);
+         console.error("Erro ao buscar o usuário :" + error);
       }
    }
 

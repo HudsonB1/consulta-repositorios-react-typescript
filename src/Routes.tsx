@@ -10,7 +10,7 @@ export default function Routes() {
          <Router>
             <Switch>
                <Route element={<Home />} path='/' />
-               <Route element={<Repositories />} path='/repositories' />
+               <Route element={<Repositories />} path='/repositories/:login' />
             </Switch>
          </Router>
       </>
