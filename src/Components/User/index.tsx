@@ -4,8 +4,9 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { Link } from "react-router-dom";
+import ContributionGraph from '@/Components/ContributionGraph';
 
+import { Link } from "react-router-dom";
 interface Props {
    avatar_url: string,
    login: string,
@@ -16,7 +17,6 @@ interface Props {
    location: string
 }
 
-
 export default function User({ avatar_url, login, name, bio, followers, following, location }: Props) {
 
    return (
@@ -26,7 +26,7 @@ export default function User({ avatar_url, login, name, bio, followers, followin
             src={`${avatar_url}`}
             sx={{ width: 256, height: 256, border: '2px solid #f2f2f2' }}
          />
-         <Button variant="outlined" size="small" color="primary" href={`https://github.com/${login}`} target="_blank"> <GitHubIcon fontSize='small' sx={{marginRight: '5px' }}/> GitHub </Button>
+         <Button variant="outlined" size="small" color="primary" href={`https://github.com/${login}`} target="_blank"> <GitHubIcon fontSize='small' sx={{ marginRight: '5px' }} /> GitHub </Button>
          <Typography variant="h1" fontSize={35} fontWeight={'bold'}>{name}</Typography>
          <Typography variant="h2" fontSize={25}>{login}</Typography>
          {
@@ -53,6 +53,7 @@ export default function User({ avatar_url, login, name, bio, followers, followin
                </Box >
                : null
          }
+         <ContributionGraph username={login} />
          <Link to={`/repositories/${login}`}>
             <Button variant="contained" size="small" color="success"> Repositórios </Button>
          </Link>
